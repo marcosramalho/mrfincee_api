@@ -1,0 +1,11 @@
+{
+  "name": "mrfince_api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+  },
+  "author": "Marcos Ramalho",
+  "license": "ISC"
+}

@@ -11,3 +11,6 @@
 
 # 0.4.0
 - Configuração do supertest (acessar url)
+
+# 0.5.0
+- Configuração do express

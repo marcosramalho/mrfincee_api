@@ -1,11 +1,17 @@
 {
   "name": "mrfince_api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
+    "lint": "eslint src/** test/** --fix"
   },
   "author": "Marcos Ramalho",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }

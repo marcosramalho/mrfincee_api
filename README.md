@@ -8,3 +8,6 @@
 
 # 0.3.0
 - Configuração do jest
+
+# 0.4.0
+- Configuração do supertest (acessar url)

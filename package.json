@@ -1,10 +1,11 @@
 {
   "name": "mrfince_api",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
+    "test": "jest",
     "lint": "eslint src/** test/** --fix"
   },
   "author": "Marcos Ramalho",
@@ -12,6 +13,7 @@
   "devDependencies": {
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "23.6.0"
   }
 }

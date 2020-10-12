@@ -5,3 +5,6 @@
 
 # 0.2.0
 - Configuração do eslint
+
+# 0.3.0
+- Configuração do jest

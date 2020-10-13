@@ -13,5 +13,22 @@ module.exports = (app) => {
     });
   };
 
-  return { findAll };
+  const create = async (req, res) => {
+    const category = {
+      cat_name: req.body.name,
+      cat_description: req.body.description,
+      cat_createdAt: new Date(),
+    };
+    const [result] = await app.services.categories.save(category);
+    const data = {
+      id: result.cat_id,
+      name: result.cat_name,
+      description: result.cat_description,
+      createdAt: result.cat_createdAt,
+    };
+
+    res.status(201).json(data);
+  };
+
+  return { findAll, create };
 };

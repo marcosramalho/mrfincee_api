@@ -37,3 +37,4 @@
 # 0.9.0
 - Add tests categories
 - Deve listar todas as categorias
+- Deve inserir uma categoria

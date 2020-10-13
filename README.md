@@ -38,5 +38,5 @@
 - Add tests categories
 - Deve listar todas as categorias
 - Deve inserir uma categoria
-- Nao deve inserir categoria sem nome
+- Nao deve inserir categoria sem nome e nome duplicado
 - Nao deve inserir categoria sem descricao

@@ -138,3 +138,20 @@ test('Nao deve inserir usuario com username duplicado', () => {
       expect(res.body.error).toBe('Já existe um usuário com esse username');
     });
 });
+
+test('Nao deve inserir usuario com email duplicado', () => {
+  const username = `${Date.now()}user`;
+  return request(app)
+    .post('/users')
+    .send({
+      name: 'Marcos',
+      lastName: 'Ramalho',
+      password: '123456',
+      username,
+      email: 'marcos@email.com',
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Já existe um usuário com esse email');
+    });
+});

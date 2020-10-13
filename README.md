@@ -18,3 +18,9 @@
 # 0.6.0
 - Add route users
 - refactoring files
+
+# 0.7.0
+- Add dotenv - config environment
+- Add knex/pg - config integration database
+- Add express 
+- Add migrations table

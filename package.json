@@ -8,7 +8,7 @@
     "start": "node src/server.js",
     "test": "jest",
     "lint": "eslint src/** test/** --fix",
-    "secure-mode": "jest --watch"
+    "secure-mode": "jest --watch --verbose=false"
   },
   "author": "Marcos Ramalho",
   "license": "ISC",
@@ -21,6 +21,9 @@
   },
   "dependencies": {
     "consign": "^0.1.6",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "pg": "^8.4.1"
   }
 }

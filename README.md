@@ -33,3 +33,7 @@
 - Nao deve inserir usuario sem sobrenome
 - Nao deve inserir usuario sem senha
 - Nao deve inserir usuario sem data de criacao
+
+# 0.9.0
+- Add tests categories
+- Deve listar todas as categorias

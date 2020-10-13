@@ -3,4 +3,6 @@ module.exports = (app) => {
     .route('/users')
     .get(app.routes.users.findAll)
     .post(app.routes.users.create);
+
+  app.route('/categories').get(app.routes.categories.findAll);
 };

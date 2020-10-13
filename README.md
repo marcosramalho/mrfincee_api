@@ -24,3 +24,12 @@
 - Add knex/pg - config integration database
 - Add express 
 - Add migrations table
+
+# 0.8.0 
+- Add tests users
+- Nao deve inserir usuario sem username e username duplicado
+- Nao deve inserir usuario sem email e email duplicado
+- Nao deve inserir usuario sem nome
+- Nao deve inserir usuario sem sobrenome
+- Nao deve inserir usuario sem senha
+- Nao deve inserir usuario sem data de criacao

@@ -1,6 +1,6 @@
 {
   "name": "mrfince_api",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "Gerenciador financeiro pessoal",
   "main": "index.js",
   "private": true,

@@ -44,3 +44,18 @@ test('Nao deve inserir usuario sem username', () => {
       expect(res.body.error).toBe('Username é obrigatório');
     });
 });
+
+test('Nao deve inserir usuario sem email', () => {
+  return request(app)
+    .post('/users')
+    .send({
+      name: 'Marcos',
+      lastName: 'Ramalho',
+      password: '123456',
+      username: 'mrfinceeuser',
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Email é obrigatório');
+    });
+});

@@ -29,3 +29,18 @@ test('Deve inserir usuário com sucesso', () => {
       expect(res.body.lastName).toBe('Ramalho');
     });
 });
+
+test('Nao deve inserir usuario sem username', () => {
+  return request(app)
+    .post('/users')
+    .send({
+      name: 'Marcos',
+      lastName: 'Ramalho',
+      password: '123456',
+      email: 'mm@email.com',
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Username é obrigatório');
+    });
+});

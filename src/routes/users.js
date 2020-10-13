@@ -26,7 +26,11 @@ module.exports = (app) => {
 
     const result = await app.services.users.save(data);
 
-    res.status(201).json({
+    if (result.error) {
+      return res.status(400).json(result);
+    }
+
+    return res.status(201).json({
       username: result[0].use_username,
       email: result[0].use_email,
       lastName: result[0].use_last_name,

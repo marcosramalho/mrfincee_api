@@ -104,3 +104,20 @@ test('Nao deve inserir usuario sem senha', () => {
       expect(res.body.error).toBe('Senha é obrigatório');
     });
 });
+
+test('Nao deve inserir usuario sem data de criacao', () => {
+  return request(app)
+    .post('/users')
+    .send({
+      name: 'Marcos',
+      lastName: 'Ramalho',
+      password: '123456',
+      username: 'mrfinceeuser',
+      email: 'mm@email.com',
+      createdAt: '',
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Data de criação é obrigatório');
+    });
+});

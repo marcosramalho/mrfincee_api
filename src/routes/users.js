@@ -1,11 +1,17 @@
 module.exports = (app) => {
   const findAll = (req, res) => {
-    app
-      .db('user')
-      .select()
-      .then((result) => {
-        res.status(200).json(result);
+    app.services.users.findAll().then((result) => {
+      const users = result.map((r) => {
+        return {
+          username: r.use_username,
+          email: r.use_email,
+          lastName: r.use_last_name,
+          createdAt: r.use_createdAt,
+          name: r.use_name,
+        };
       });
+      res.status(200).json(users);
+    });
   };
 
   const create = async (req, res) => {
@@ -17,7 +23,9 @@ module.exports = (app) => {
       use_password: req.body.password,
       cat_createdAt: new Date(),
     };
-    const result = await app.db('user').insert(data, '*');
+
+    const result = await app.services.users.save(data);
+
     res.status(201).json({
       username: result[0].use_username,
       email: result[0].use_email,

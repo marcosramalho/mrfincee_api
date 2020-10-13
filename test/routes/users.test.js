@@ -121,3 +121,20 @@ test('Nao deve inserir usuario sem data de criacao', () => {
       expect(res.body.error).toBe('Data de criação é obrigatório');
     });
 });
+
+test('Nao deve inserir usuario com username duplicado', () => {
+  const email = `${Date.now()}@email.com`;
+  return request(app)
+    .post('/users')
+    .send({
+      name: 'Marcos',
+      lastName: 'Ramalho',
+      password: '123456',
+      username: 'marcosramalho',
+      email,
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Já existe um usuário com esse username');
+    });
+});

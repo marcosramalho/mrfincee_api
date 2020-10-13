@@ -24,3 +24,15 @@ test('Deve inserir uma categoria com sucesso', () => {
       expect(res.body.name).toBe(name);
     });
 });
+
+test('Nao deve inserir categoria sem nome', () => {
+  return request(app)
+    .post('/categories')
+    .send({
+      description: 'Categoria descrição',
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Nome é obrigatório');
+    });
+});

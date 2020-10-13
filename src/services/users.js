@@ -11,10 +11,16 @@ module.exports = (app) => {
     if (!user.use_password) return { error: 'Senha é obrigatório' };
     if (!user.use_createdAt) return { error: 'Data de criação é obrigatório' };
 
-    const userDB = await findAll({ use_username: user.use_username });
-    if (userDB && userDB.length > 0) {
+    const usernameDB = await findAll({ use_username: user.use_username });
+    if (usernameDB && usernameDB.length > 0) {
       return { error: 'Já existe um usuário com esse username' };
     }
+
+    const emailDB = await findAll({ use_email: user.use_email });
+    if (emailDB && emailDB.length > 0) {
+      return { error: 'Já existe um usuário com esse email' };
+    }
+
     return app.db('user').insert(user, '*');
   };
 

@@ -7,6 +7,7 @@ module.exports = (app) => {
     if (!user.use_username) return { error: 'Username é obrigatório' };
     if (!user.use_email) return { error: 'Email é obrigatório' };
     if (!user.use_name) return { error: 'Nome é obrigatório' };
+    if (!user.use_last_name) return { error: 'Sobrenome é obrigatório' };
 
     return app.db('user').insert(user, '*');
   };

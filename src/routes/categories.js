@@ -19,15 +19,20 @@ module.exports = (app) => {
       cat_description: req.body.description,
       cat_createdAt: new Date(),
     };
-    const [result] = await app.services.categories.save(category);
+    const result = await app.services.categories.save(category);
+
+    if (result.error) {
+      return res.status(400).json(result);
+    }
+
     const data = {
-      id: result.cat_id,
-      name: result.cat_name,
-      description: result.cat_description,
-      createdAt: result.cat_createdAt,
+      id: result[0].cat_id,
+      name: result[0].cat_name,
+      description: result[0].cat_description,
+      createdAt: result[0].cat_createdAt,
     };
 
-    res.status(201).json(data);
+    return res.status(201).json(data);
   };
 
   return { findAll, create };

@@ -21,7 +21,7 @@ module.exports = (app) => {
       use_name: req.body.name,
       use_last_name: req.body.lastName,
       use_password: req.body.password,
-      cat_createdAt: new Date(),
+      use_createdAt: req.body.createdAt === '' ? undefined : new Date(),
     };
 
     const result = await app.services.users.save(data);

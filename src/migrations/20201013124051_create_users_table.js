@@ -6,9 +6,9 @@ exports.up = (knex) => {
     t.string('use_name', 30).notNull();
     t.string('use_last_name', 120).notNull();
     t.string('use_password', 255).notNull();
-    t.datetime('cat_createdAt').notNull();
-    t.datetime('cat_updatedAt');
-    t.datetime('cat_deletedAt');
+    t.datetime('use_createdAt').notNull();
+    t.datetime('use_updatedAt');
+    t.datetime('use_deletedAt');
   });
 };
 

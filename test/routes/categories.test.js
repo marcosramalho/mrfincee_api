@@ -48,3 +48,16 @@ test('Nao deve inserir categoria sem descricao', () => {
       expect(res.body.error).toBe('Descrição é obrigatório');
     });
 });
+
+test('Nao deve inserir categoria com nome duplicado', () => {
+  return request(app)
+    .post('/categories')
+    .send({
+      name: 'Lazer',
+      description: 'Categoria descrição',
+    })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('Já existe uma categoria com esse nome');
+    });
+});

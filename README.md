@@ -14,3 +14,7 @@
 
 # 0.5.0
 - Configuração do express
+
+# 0.6.0
+- Add route users
+- refactoring files

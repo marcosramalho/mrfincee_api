@@ -16,6 +16,6 @@
     },
     "rules": {
         "linebreak-style": "off",
-        "arrow-body-style": "off"    
+        "arrow-body-style": "off"
     }
 }

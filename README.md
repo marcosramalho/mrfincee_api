@@ -39,3 +39,4 @@
 - Deve listar todas as categorias
 - Deve inserir uma categoria
 - Nao deve inserir categoria sem nome
+- Nao deve inserir categoria sem descricao

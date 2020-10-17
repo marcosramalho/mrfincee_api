@@ -56,3 +56,12 @@ test('Deve inserir um lançamento com sucesso', () => {
       expect(result.body.name).toBe('Lanc #1');
     });
 });
+
+test('Deve listar todos os lancamentos', () => {
+  return request(app)
+    .get(MAIN_ROUTE)
+    .then((result) => {
+      expect(result.status).toBe(200);
+      expect(result.body.length).toBeGreaterThan(0);
+    });
+});

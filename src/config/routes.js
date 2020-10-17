@@ -8,4 +8,6 @@ module.exports = (app) => {
     .route('/categories')
     .get(app.routes.categories.findAll)
     .post(app.routes.categories.create);
+
+  app.route('/entries').post(app.routes.entries.create);
 };

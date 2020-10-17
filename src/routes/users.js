@@ -31,6 +31,7 @@ module.exports = (app) => {
     }
 
     return res.status(201).json({
+      id: result[0].use_id,
       username: result[0].use_username,
       email: result[0].use_email,
       lastName: result[0].use_last_name,

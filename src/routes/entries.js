@@ -1,4 +1,10 @@
 module.exports = (app) => {
+  const findAll = (req, res) => {
+    app.services.entries.findAll().then((result) => {
+      res.status(200).json(result);
+    });
+  };
+
   const create = (req, res) => {
     const data = {
       ent_name: req.body.name,
@@ -19,5 +25,5 @@ module.exports = (app) => {
     });
   };
 
-  return { create };
+  return { create, findAll };
 };

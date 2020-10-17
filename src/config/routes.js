@@ -9,5 +9,8 @@ module.exports = (app) => {
     .get(app.routes.categories.findAll)
     .post(app.routes.categories.create);
 
-  app.route('/entries').post(app.routes.entries.create);
+  app
+    .route('/entries')
+    .get(app.routes.entries.findAll)
+    .post(app.routes.entries.create);
 };

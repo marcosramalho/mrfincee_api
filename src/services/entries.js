@@ -3,5 +3,9 @@ module.exports = (app) => {
     return app.db('entry').insert(entry, '*');
   };
 
-  return { create };
+  const findAll = () => {
+    return app.db('entry').select();
+  };
+
+  return { create, findAll };
 };

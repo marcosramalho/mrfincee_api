@@ -137,6 +137,22 @@ test('Nao deve inserir lancamento sem ID do usuario', () => {
     });
 });
 
+test('Nao deve inserir lancamento sem ID da categoria', () => {
+  return request(app)
+    .post(MAIN_ROUTE)
+    .send({
+      name: 'Lanc #1',
+      amount: 10,
+      type: 'expense',
+      description: 'Lanc #1',
+      userId: user.id,
+    })
+    .then((result) => {
+      expect(result.status).toBe(400);
+      expect(result.body.error).toBe('Categoria é obrigatória');
+    });
+});
+
 test('Deve listar todos os lancamentos', () => {
   return app
     .db('entry')

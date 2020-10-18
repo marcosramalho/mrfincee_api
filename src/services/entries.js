@@ -3,8 +3,8 @@ module.exports = (app) => {
     return app.db('entry').insert(entry, '*');
   };
 
-  const findAll = () => {
-    return app.db('entry').select();
+  const findAll = (filter = {}) => {
+    return app.db('entry').where(filter).select();
   };
 
   return { create, findAll };

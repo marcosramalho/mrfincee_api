@@ -13,4 +13,6 @@ module.exports = (app) => {
     .route('/entries')
     .get(app.routes.entries.findAll)
     .post(app.routes.entries.create);
+
+  app.route('/entries/:id').get(app.routes.entries.findOne);
 };

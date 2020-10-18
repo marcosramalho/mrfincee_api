@@ -5,6 +5,7 @@ module.exports = (app) => {
     if (!entry.ent_type) return { error: 'Tipo é obrigatório' };
     if (!entry.ent_description) return { error: 'Descrição é obrigatório' };
     if (!entry.user_id) return { error: 'ID do usuário é obrigatório' };
+    if (!entry.category_id) return { error: 'Categoria é obrigatória' };
 
     return app.db('entry').insert(entry, '*');
   };

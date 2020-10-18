@@ -73,6 +73,22 @@ test('Nao deve inserir lancamento sem nome', () => {
     });
 });
 
+test('Nao deve inserir lancamento sem valor', () => {
+  return request(app)
+    .post(MAIN_ROUTE)
+    .send({
+      name: 'Lanc #1',
+      type: 'expense',
+      description: 'Lanc #1',
+      userId: user.id,
+      categoryId: category.id,
+    })
+    .then((result) => {
+      expect(result.status).toBe(400);
+      expect(result.body.error).toBe('Valor é obrigatório');
+    });
+});
+
 test('Deve listar todos os lancamentos', () => {
   return app
     .db('entry')

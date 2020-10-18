@@ -58,10 +58,45 @@ test('Deve inserir um lançamento com sucesso', () => {
 });
 
 test('Deve listar todos os lancamentos', () => {
-  return request(app)
-    .get(MAIN_ROUTE)
+  return app
+    .db('entry')
+    .insert({
+      ent_name: 'Lanc #1',
+      ent_amount: 10,
+      ent_type: 'expense',
+      ent_description: 'Lanc #1',
+      ent_createdAt: new Date(),
+      user_id: user.id,
+      category_id: category.id,
+    })
+    .then(() => request(app).get(MAIN_ROUTE))
     .then((result) => {
       expect(result.status).toBe(200);
       expect(result.body.length).toBeGreaterThan(0);
+    });
+});
+
+test('Deve retornar detalhes do lancamento', () => {
+  return app
+    .db('entry')
+    .insert(
+      {
+        ent_name: 'Lanc #1',
+        ent_amount: 10,
+        ent_type: 'expense',
+        ent_description: 'Lanc #1',
+        ent_createdAt: new Date(),
+        user_id: user.id,
+        category_id: category.id,
+      },
+      ['ent_id'],
+    )
+    .then((entry) => request(app).get(`${MAIN_ROUTE}/${entry[0].ent_id}`))
+    .then((result) => {
+      expect(result.status).toBe(200);
+      expect(result.body.description).toBe('Lanc #1');
+      expect(result.body.type).toBe('expense');
+      expect(result.body.userId).toBe(user.id);
+      expect(result.body.categoryId).toBe(category.id);
     });
 });

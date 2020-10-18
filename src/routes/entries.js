@@ -39,7 +39,7 @@ module.exports = (app) => {
     });
   };
 
-  const create = (req, res) => {
+  const create = async (req, res) => {
     const data = {
       ent_name: req.body.name,
       ent_amount: req.body.amount,
@@ -49,17 +49,21 @@ module.exports = (app) => {
       user_id: req.body.userId,
       category_id: req.body.categoryId,
     };
-    app.services.entries.create(data).then((result) => {
-      res.status(201).json({
-        name: result[0].ent_name,
-        amount: result[0].ent_amount,
-        type: result[0].ent_type,
-        description: result[0].ent_description,
-        userId: result[0].user_id,
-        categoryId: result[0].category_id,
-        datePaid: result[0].ent_date_paid,
-        paid: result[0].ent_paid,
-      });
+    const result = await app.services.entries.create(data);
+
+    if (result.error) {
+      return res.status(400).json(result);
+    }
+
+    return res.status(201).json({
+      name: result[0].ent_name,
+      amount: result[0].ent_amount,
+      type: result[0].ent_type,
+      description: result[0].ent_description,
+      userId: result[0].user_id,
+      categoryId: result[0].category_id,
+      datePaid: result[0].ent_date_paid,
+      paid: result[0].ent_paid,
     });
   };
 
